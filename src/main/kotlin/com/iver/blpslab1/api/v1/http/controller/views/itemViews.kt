@@ -13,14 +13,12 @@ class ItemView(
 )
 
 fun ItemEntity.toView(
-): ItemView {
-    return ItemView(
-        id = id,
-        fullName = fullName,
-        inStock = inStock,
-        price = price,
-        warrantyPeriod = warrantyPeriod,
-        country = country,
-        definition = definition
-    )
-}
+): ItemView = ItemView(
+    id = id,
+    fullName = fullName,
+    inStock = inStock,
+    price = price,
+    warrantyPeriod = warrantyPeriod,
+    country = country,
+    definition = definition
+)

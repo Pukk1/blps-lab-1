@@ -13,7 +13,7 @@ class ItemController(
     private val itemService: ItemService
 ) {
 
-    @PostMapping()
+    @PostMapping
     fun createItem(
         @RequestBody createItemRequest: CreateItemRequest
     ): ItemView = itemService.createItem(createItemRequest).toView()
