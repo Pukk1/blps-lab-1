@@ -11,7 +11,7 @@ interface ItemService {
     ): ItemEntity
     fun getItemById(
         id: Long
-    ): ItemEntity?
+    ): ItemEntity
     fun updateItem(
         id: Long,
         request: UpdateItemRequest

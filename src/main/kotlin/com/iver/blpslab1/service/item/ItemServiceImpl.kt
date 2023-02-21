@@ -6,14 +6,12 @@ import com.iver.blpslab1.api.v1.http.requests.toEntity
 import com.iver.blpslab1.dao.item.entity.ItemEntity
 import com.iver.blpslab1.dao.item.repository.ItemRepository
 import com.iver.blpslab1.exception.NotFoundException
-import jakarta.persistence.EntityNotFoundException
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 
 @Service
 class ItemServiceImpl(
     private val itemRepository: ItemRepository
-) : ItemService {
+) : ItemService, ItemSearchService {
     override fun createItem(
         request: CreateItemRequest
     ): ItemEntity = save(request.toEntity())
@@ -34,12 +32,12 @@ class ItemServiceImpl(
         id: Long
     ) = itemRepository.deleteById(id)
 
-    fun getAllByKeyword(
+    override fun getAllByKeyword(
         keyword: String
     ): List<ItemEntity> = itemRepository.findSimilar(keyword)
 
     private val hintSearchingLimit = 5
-    fun getHints(
+    override fun getHints(
         keyword: String
     ): List<ItemEntity> = itemRepository.findSimilarWithLimit(keyword, hintSearchingLimit)
 
