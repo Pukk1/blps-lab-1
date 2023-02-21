@@ -1,4 +1,4 @@
-package com.iver.blpslab1.api.v1.http.controller.views
+package com.iver.blpslab1.api.v1.http.views
 
 import com.iver.blpslab1.dao.item.entity.ItemEntity
 
@@ -9,7 +9,7 @@ class ItemView(
     val price: Int?,
     val warrantyPeriod: Int?,
     val country: String,
-    val definition: String,
+    val definition: String?,
 )
 
 fun ItemEntity.toView(
@@ -20,5 +20,5 @@ fun ItemEntity.toView(
     price = price,
     warrantyPeriod = warrantyPeriod,
     country = country,
-    definition = definition
+    definition = definition,
 )

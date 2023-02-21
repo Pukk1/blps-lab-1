@@ -1,4 +1,4 @@
-package com.iver.blpslab1.api.v1.http.controller.dto
+package com.iver.blpslab1.api.v1.http.dto
 
 import com.iver.blpslab1.dao.order.entity.AdressId
 import jakarta.validation.constraints.NotBlank

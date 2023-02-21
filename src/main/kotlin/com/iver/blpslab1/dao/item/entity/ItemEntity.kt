@@ -17,7 +17,7 @@ class ItemEntity(
     @NotBlank
     val country: String,
     @NotBlank
-    val definition: String,
+    val definition: String?,
 
     @OneToMany(
         mappedBy = "item",

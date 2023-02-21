@@ -1,8 +1,8 @@
 package com.iver.blpslab1.domain.service
 
-import com.iver.blpslab1.api.v1.http.controller.requests.CreateItemRequest
-import com.iver.blpslab1.api.v1.http.controller.requests.UpdateItemRequest
-import com.iver.blpslab1.api.v1.http.controller.requests.toEntity
+import com.iver.blpslab1.api.v1.http.requests.CreateItemRequest
+import com.iver.blpslab1.api.v1.http.requests.UpdateItemRequest
+import com.iver.blpslab1.api.v1.http.requests.toEntity
 import com.iver.blpslab1.dao.item.entity.ItemEntity
 import com.iver.blpslab1.dao.item.repository.ItemRepository
 import jakarta.persistence.EntityNotFoundException
