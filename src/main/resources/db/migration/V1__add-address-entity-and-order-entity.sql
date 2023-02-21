@@ -14,8 +14,8 @@ CREATE TABLE order_entity
     coast             FLOAT        NOT NULL,
     phone_number      VARCHAR(255) NOT NULL,
     email             VARCHAR(255) NOT NULL,
-    address_entity_id BIGINT       NOT NULL
+    address_id BIGINT       NOT NULL
 );
 
 ALTER TABLE order_entity
-    ADD CONSTRAINT FK_ORDERENTITY_ON_ADDRESSENTITY FOREIGN KEY (address_entity_id) REFERENCES address_entity (id);
+    ADD CONSTRAINT FK_ORDERENTITY_ON_ADDRESSENTITY FOREIGN KEY (address_id) REFERENCES address_entity (id);

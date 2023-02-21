@@ -7,7 +7,6 @@ CREATE TABLE item_entity
     warranty_period INTEGER,
     country         VARCHAR(255) NOT NULL,
     definition      VARCHAR(255),
-    order_id        BIGINT
 );
 
 CREATE TABLE specification_entity
