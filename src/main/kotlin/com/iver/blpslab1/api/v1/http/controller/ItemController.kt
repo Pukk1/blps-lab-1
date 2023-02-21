@@ -15,6 +15,7 @@ class ItemController(
         @RequestBody createItemRequest: CreateItemRequest
     ) {
         itemService.createItem(createItemRequest)
+        
     }
 
     @GetMapping("/{itemId}")
