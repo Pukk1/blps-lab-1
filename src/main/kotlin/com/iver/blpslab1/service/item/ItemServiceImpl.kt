@@ -5,6 +5,7 @@ import com.iver.blpslab1.api.v1.http.requests.UpdateItemRequest
 import com.iver.blpslab1.api.v1.http.requests.toEntity
 import com.iver.blpslab1.dao.item.entity.ItemEntity
 import com.iver.blpslab1.dao.item.repository.ItemRepository
+import com.iver.blpslab1.exception.NotFoundException
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
@@ -19,13 +20,13 @@ class ItemServiceImpl(
 
     override fun getItemById(
         id: Long
-    ): ItemEntity? = itemRepository.findByIdOrNull(id)
+    ): ItemEntity = itemRepository.findById(id).orElseThrow { NotFoundException("Item not found") }
 
     override fun updateItem(
         id: Long,
         request: UpdateItemRequest
     ): ItemEntity {
-        val item = itemRepository.findById(id).orElseThrow { EntityNotFoundException() }
+        val item = itemRepository.findById(id).orElseThrow { NotFoundException("Item not found") }
         return save(request.toEntity(item.id))
     }
 

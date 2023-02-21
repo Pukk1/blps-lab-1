@@ -1,6 +1,6 @@
 package com.iver.blpslab1.remote.retrofit2.payment
 
-import com.iver.blpslab1.utils.exceptions.PaymentIntegrationException
+import com.iver.blpslab1.exception.PaymentIntegrationException
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import retrofit2.Retrofit
