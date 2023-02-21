@@ -1,4 +1,4 @@
-package com.iver.blpslab1.domain.service.order
+package com.iver.blpslab1.service.order
 
 import com.iver.blpslab1.dao.order.entity.OrderEntity
 import com.iver.blpslab1.dao.order.entity.OrderId

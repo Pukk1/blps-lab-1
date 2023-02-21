@@ -1,4 +1,4 @@
-package com.iver.blpslab1.domain.service.item
+package com.iver.blpslab1.service.item
 
 import com.iver.blpslab1.api.v1.http.requests.CreateItemRequest
 import com.iver.blpslab1.api.v1.http.requests.UpdateItemRequest
@@ -8,22 +8,20 @@ import com.iver.blpslab1.dao.item.repository.ItemRepository
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
-import org.springframework.transaction.annotation.Isolation
-import org.springframework.transaction.annotation.Transactional
 
 @Service
-class ItemService(
+class ItemServiceImpl(
     private val itemRepository: ItemRepository
-) {
-    fun createItem(
+) : ItemService {
+    override fun createItem(
         request: CreateItemRequest
     ): ItemEntity = save(request.toEntity())
 
-    fun getItemById(
+    override fun getItemById(
         id: Long
     ): ItemEntity? = itemRepository.findByIdOrNull(id)
 
-    fun updateItem(
+    override fun updateItem(
         id: Long,
         request: UpdateItemRequest
     ): ItemEntity {
@@ -31,18 +29,18 @@ class ItemService(
         return save(request.toEntity(item.id))
     }
 
-    fun deleteItem(
+    override fun deleteItem(
         id: Long
     ) = itemRepository.deleteById(id)
 
     fun getAllByKeyword(
         keyword: String
-    ):List<ItemEntity> = itemRepository.findSimilar(keyword)
+    ): List<ItemEntity> = itemRepository.findSimilar(keyword)
 
     private val hintSearchingLimit = 5
     fun getHints(
         keyword: String
-    ):List<ItemEntity> = itemRepository.findSimilarWithLimit(keyword, hintSearchingLimit)
+    ): List<ItemEntity> = itemRepository.findSimilarWithLimit(keyword, hintSearchingLimit)
 
     private fun save(
         itemEntity: ItemEntity
