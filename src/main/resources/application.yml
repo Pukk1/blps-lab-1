@@ -18,3 +18,5 @@ spring:
 paymentIntegration:
   accessToken: asd
   url: http://localhost:9090/api/v1/payment/
+
+X_EDX_API_KEY: "PASHAGAY"
