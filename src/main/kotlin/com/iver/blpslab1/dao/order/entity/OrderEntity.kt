@@ -19,7 +19,12 @@ class OrderEntity(
     @NotBlank
     val email: String,
     @OneToOne
-    var addressEntity: AddressEntity,
-    @OneToMany(targetEntity = ItemEntity::class, fetch = FetchType.EAGER, mappedBy = "order")
-    var items: List<ItemEntity>,
+    val address: AddressEntity,
+    @ManyToMany
+    @JoinTable(
+        name = "order_item",
+        joinColumns = [JoinColumn(name = "order_id")],
+        inverseJoinColumns = [JoinColumn(name = "course_id")]
+    )
+    val items: List<ItemEntity>,
 )

@@ -3,7 +3,7 @@ package com.iver.blpslab1.api.v1.http.controller.dto
 import com.iver.blpslab1.dao.order.entity.AdressId
 import jakarta.validation.constraints.NotBlank
 
-class AddressEntityDto(
+class AddressDto(
     val id: AdressId,
     @NotBlank
     val country: String,

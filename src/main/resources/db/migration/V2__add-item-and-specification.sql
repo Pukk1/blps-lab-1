@@ -6,8 +6,7 @@ CREATE TABLE item_entity
     price           INTEGER,
     warranty_period INTEGER,
     country         VARCHAR(255) NOT NULL,
-    definition      VARCHAR(255) NOT NULL,
-    order_id        BIGINT       NOT NULL
+    definition      VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE specification_entity

@@ -26,8 +26,4 @@ class ItemEntity(
         orphanRemoval = true
     )
     val specifications: List<SpecificationEntity>,
-) {
-    @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    lateinit var order: OrderEntity
-}
+)
