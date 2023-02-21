@@ -5,7 +5,6 @@ import com.iver.blpslab1.api.v1.http.requests.UpdateItemRequest
 import com.iver.blpslab1.api.v1.http.views.ItemView
 import com.iver.blpslab1.api.v1.http.views.toView
 import com.iver.blpslab1.service.item.ItemService
-import com.iver.blpslab1.service.item.ItemServiceImpl
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 

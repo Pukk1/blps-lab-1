@@ -6,7 +6,6 @@ import com.iver.blpslab1.dao.order.repository.OrderRepository
 import com.iver.blpslab1.exception.NotFoundException
 import com.iver.blpslab1.remote.retrofit2.payment.PayRequest
 import com.iver.blpslab1.remote.retrofit2.payment.PaymentIntegration
-import jakarta.persistence.EntityNotFoundException
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
