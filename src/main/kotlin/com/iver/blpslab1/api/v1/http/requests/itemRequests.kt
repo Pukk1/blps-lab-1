@@ -28,30 +28,27 @@ class UpdateItemRequest(
 )
 
 fun CreateItemRequest.toEntity(
-): ItemEntity {
-    return ItemEntity(
-        id = 0L,
-        fullName = fullName,
-        inStock = inStock,
-        price = price,
-        warrantyPeriod = warrantyPeriod,
-        country = country,
-        definition = definition,
-        specifications = listOf()
-    )
-}
+): ItemEntity = ItemEntity(
+    id = 0L,
+    fullName = fullName,
+    inStock = inStock,
+    price = price,
+    warrantyPeriod = warrantyPeriod,
+    country = country,
+    definition = definition,
+    specifications = listOf(),
+)
+
 
 fun UpdateItemRequest.toEntity(
     id: Long
-): ItemEntity {
-    return ItemEntity(
-        id = id,
-        fullName = fullName,
-        inStock = inStock,
-        price = price,
-        warrantyPeriod = warrantyPeriod,
-        country = country,
-        definition = definition,
-        specifications = listOf()
-    )
-}
+): ItemEntity = ItemEntity(
+    id = id,
+    fullName = fullName,
+    inStock = inStock,
+    price = price,
+    warrantyPeriod = warrantyPeriod,
+    country = country,
+    definition = definition,
+    specifications = listOf(),
+)
