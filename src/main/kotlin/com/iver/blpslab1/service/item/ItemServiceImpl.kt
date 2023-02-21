@@ -7,11 +7,14 @@ import com.iver.blpslab1.dao.item.entity.ItemEntity
 import com.iver.blpslab1.dao.item.repository.ItemRepository
 import com.iver.blpslab1.exception.NotFoundException
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Isolation
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class ItemServiceImpl(
     private val itemRepository: ItemRepository
 ) : ItemService, ItemSearchService {
+
     override fun createItem(
         request: CreateItemRequest
     ): ItemEntity = save(request.toEntity())
@@ -20,6 +23,7 @@ class ItemServiceImpl(
         id: Long
     ): ItemEntity = itemRepository.findById(id).orElseThrow { NotFoundException("Item not found") }
 
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     override fun updateItem(
         id: Long,
         request: UpdateItemRequest
