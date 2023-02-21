@@ -42,4 +42,9 @@ class OrderController(
     fun deleteItem(
         @PathVariable orderId: OrderId,
     ) = orderService.deleteOrder(orderId)
+
+    @PostMapping("/buy/{orderId}")
+    fun buyOrder(
+        @PathVariable orderId: OrderId
+    ) = orderService.buyOrder(orderId)
 }
