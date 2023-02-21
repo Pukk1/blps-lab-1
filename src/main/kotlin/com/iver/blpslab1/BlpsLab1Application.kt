@@ -1,4 +1,4 @@
-package com.ivan.blpslab1
+package com.iver.blpslab1
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
