@@ -28,7 +28,13 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "X_EDX_API_KEY",
+								"value": "PASHAGAY",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"fullName\": \"Ноутбук HUAWEI 53013PLU NbD-WDI9 MateBook D14 i3/8GB/256GB Sp/Gr\",\r\n    \"inStock\": true,\r\n    \"price\": 39999,\r\n    \"warrantyPeriod\": 1,\r\n    \"country\": \"RU\"\r\n}",
@@ -69,7 +75,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "X_EDX_API_KEY",
+								"value": "PASHAGAY",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{baseUrl}}/api/v1/item/{{itemId}}",
 							"host": [
@@ -102,7 +114,13 @@
 					],
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "X_EDX_API_KEY",
+								"value": "PASHAGAY",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"fullName\": \"Ноутбук HUAWEI 53013PLU NbD-WDI9 MateBook D14 i3/8GB/256GB Sp/Gr\",\r\n    \"inStock\": true,\r\n    \"price\": 34999,\r\n    \"warrantyPeriod\": 1,\r\n    \"country\": \"RU\",\r\n    \"definition\": \"bla-bla-bla updated\"\r\n}",
@@ -217,7 +235,13 @@
 					],
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "X_EDX_API_KEY",
+								"value": "PASHAGAY",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{baseUrl}}/api/v1/item/{{itemId}}",
 							"host": [
