@@ -1,17 +1,40 @@
 package com.iver.blpslab1.api.v1.http.dto
 
-import com.iver.blpslab1.dao.order.entity.AdressId
+import com.iver.blpslab1.dao.order.entity.AddressEntity
+import com.iver.blpslab1.dao.order.entity.AddressId
 import jakarta.validation.constraints.NotBlank
 
-class AddressDto(
-    val id: AdressId,
+data class AddressDto(
+    var id: AddressId,
     @NotBlank
-    val country: String,
+    var country: String,
     @NotBlank
-    val city: String,
+    var city: String,
     @NotBlank
-    val street: String,
-    val homeNumber: Int,
-    val flat: Int,
-    val comment: String?,
+    var street: String,
+    var homeNumber: Int,
+    var flat: Int,
+    var comment: String?,
 )
+
+fun AddressDto.toEntity() = AddressEntity(
+    id = id,
+    country = country,
+    city = city,
+    street = street,
+    homeNumber = homeNumber,
+    flat = flat,
+    comment = comment,
+)
+
+fun AddressEntity.toDto() = AddressDto(
+    id = id,
+    country = country,
+    city = city,
+    street = street,
+    homeNumber = homeNumber,
+    flat = flat,
+    comment = comment,
+)
+
+

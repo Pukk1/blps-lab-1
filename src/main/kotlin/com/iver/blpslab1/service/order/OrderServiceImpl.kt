@@ -18,9 +18,9 @@ class OrderServiceImpl(
         orderRepository.save(order)
 
     @Transactional
-    override fun updateOrder(order: OrderEntity) {
-        orderRepository.findById(order.id!!).orElseThrow { NotFoundException("Order not found") }
-        orderRepository.save(order)
+    override fun updateOrder(order: OrderEntity): OrderEntity {
+        orderRepository.findById(order.id).orElseThrow { NotFoundException("Order not found") }
+        return orderRepository.save(order)
     }
 
     override fun getOrder(orderId: OrderId): OrderEntity? {
@@ -28,7 +28,7 @@ class OrderServiceImpl(
     }
 
     override fun deleteOrder(orderId: OrderId) {
-        deleteOrder(orderId)
+        orderRepository.deleteById(orderId)
     }
 
     @Transactional
