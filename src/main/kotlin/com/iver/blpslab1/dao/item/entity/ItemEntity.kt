@@ -8,7 +8,17 @@ class ItemEntity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
     val fullName: String,
-    val price: Int,
+    val inStock: Boolean,
+    val price: Int?,
+    val warrantyPeriod: Int?,
+    val country: String,
+    val definition: String,
 
-    val warrantyPeriod: Int,
+    @OneToMany(
+        mappedBy = "item",
+        fetch = FetchType.EAGER,
+        cascade = [CascadeType.ALL],
+        orphanRemoval = true
+    )
+    val specifications: List<Specification>,
 )
