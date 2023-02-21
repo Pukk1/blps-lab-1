@@ -1,17 +1,21 @@
 package com.iver.blpslab1.dao.item.entity
 
 import jakarta.persistence.*
+import jakarta.validation.constraints.NotBlank
 
 @Entity
 class ItemEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
+    @NotBlank
     val fullName: String,
     val inStock: Boolean,
     val price: Int?,
     val warrantyPeriod: Int?,
+    @NotBlank
     val country: String,
+    @NotBlank
     val definition: String,
 
     @OneToMany(
@@ -20,5 +24,5 @@ class ItemEntity(
         cascade = [CascadeType.ALL],
         orphanRemoval = true
     )
-    val specifications: List<Specification>,
+    val specifications: List<SpecificationEntity>,
 )

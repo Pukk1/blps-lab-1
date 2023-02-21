@@ -1,6 +1,9 @@
 package com.iver.blpslab1.api.v1.http.controller
 
 import com.iver.blpslab1.api.v1.http.requests.CreateItemRequest
+import com.iver.blpslab1.api.v1.http.requests.UpdateItemRequest
+import com.iver.blpslab1.api.v1.http.views.ItemView
+import com.iver.blpslab1.api.v1.http.views.toView
 import com.iver.blpslab1.domain.service.ItemService
 import org.springframework.web.bind.annotation.*
 
@@ -13,29 +16,21 @@ class ItemController(
     @PostMapping()
     fun createItem(
         @RequestBody createItemRequest: CreateItemRequest
-    ) {
-        itemService.createItem(createItemRequest)
-        
-    }
+    ): ItemView = itemService.createItem(createItemRequest).toView()
 
     @GetMapping("/{itemId}")
     fun getItemById(
         @PathVariable itemId: Long
-    ) {
-
-    }
+    ): ItemView? = itemService.getItemById(itemId)?.toView()
 
     @PutMapping("/{itemId}")
     fun updateItem(
-        @PathVariable itemId: Long
-    ) {
-
-    }
+        @PathVariable itemId: Long,
+        @RequestBody updateItemRequest: UpdateItemRequest
+    ): ItemView = itemService.updateItem(itemId, updateItemRequest).toView()
 
     @DeleteMapping("/{itemId}")
     fun deleteItem(
         @PathVariable itemId: Long
-    ) {
-
-    }
+    ) = itemService.deleteItem(itemId)
 }
