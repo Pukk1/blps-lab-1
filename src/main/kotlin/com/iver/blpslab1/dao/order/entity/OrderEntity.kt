@@ -11,14 +11,15 @@ typealias OrderId = Long
 class OrderEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: OrderId?,
+    val id: OrderId,
     val coast: Float,
     @NotBlank
     val phoneNumber: String,
     @Email
     @NotBlank
     val email: String,
-    @OneToOne
+    @OneToOne(cascade = [CascadeType.ALL])
+    @JoinColumn(name = "address_id")
     val address: AddressEntity,
     @ManyToMany
     @JoinTable(
