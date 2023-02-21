@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "27d30b72-9451-4ffa-8fc0-5bf88bf05be8",
+		"name": "LAB1-BLPC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18244760"
+	},
+	"item": [
+		{
+			"name": "item service",
+			"item": [
+				{
+					"name": "create item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create item should be ok\", function() {\r",
+									"    pm.response.to.have.status(201);\r",
+									"\r",
+									"    pm.collectionVariables.set(\"itemId\", pm.response.json().id);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Ноутбук HUAWEI 53013PLU NbD-WDI9 MateBook D14 i3/8GB/256GB Sp/Gr\",\r\n    \"inStock\": true,\r\n    \"price\": 39999,\r\n    \"warrantyPeriod\": 1,\r\n    \"country\": \"RU\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/item/{{itemId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"item",
+								"{{itemId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Ноутбук HUAWEI 53013PLU NbD-WDI9 MateBook D14 i3/8GB/256GB Sp/Gr\",\r\n    \"inStock\": true,\r\n    \"price\": 34999,\r\n    \"warrantyPeriod\": 1,\r\n    \"country\": \"RU\",\r\n    \"definition\": \"bla-bla-bla updated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/item/{{itemId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"item",
+								"{{itemId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search?keyword=Ноутбук",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "Ноутбук"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hints",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/search/hints?keyword=Ноутбук",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"search",
+								"hints"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "Ноутбук"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/item/{{itemId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"item",
+								"{{itemId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "itemId",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
