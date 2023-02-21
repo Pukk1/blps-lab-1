@@ -1,5 +1,7 @@
-package com.iver.blpslab1.remote.retrofit2.payment
+package com.iver.blpslab1.remote.payment
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.iver.blpslab1.exception.PaymentIntegrationException
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
@@ -14,18 +16,23 @@ class PaymentIntegrationImpl(
     private val URL: String,
 ) : PaymentIntegration {
 
+    final var gson: Gson = GsonBuilder()
+        .setLenient()
+        .create()
+
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(URL)
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
-    private val api: PaymentIntegrationApi = retrofit.create(PaymentIntegrationApi::class.java)
+    private val api: PaymentServiceApi = retrofit.create(PaymentServiceApi::class.java)
 
-    override fun pay(payRequest: PayRequest) {
+    override fun pay(payRequest: PayRequest): String {
         val response = api.pay(payRequest).execute()
         if (!response.isSuccessful) {
             throw PaymentIntegrationException()
         }
+        return response.body()?.redirectUrl ?: throw PaymentIntegrationException("Empty redirect")
     }
 
 }

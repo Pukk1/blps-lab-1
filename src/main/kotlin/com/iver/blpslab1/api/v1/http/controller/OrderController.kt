@@ -6,6 +6,7 @@ import com.iver.blpslab1.api.v1.http.dto.toDto
 import com.iver.blpslab1.api.v1.http.dto.toEntity
 import com.iver.blpslab1.dao.order.entity.OrderId
 import com.iver.blpslab1.service.order.OrderService
+import jakarta.servlet.http.HttpServletResponse
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -39,6 +40,9 @@ class OrderController(
 
     @PostMapping("/buy/{orderId}")
     fun buyOrder(
-        @PathVariable orderId: OrderId
-    ) = orderService.buyOrder(orderId)
+        @PathVariable orderId: OrderId,
+        response: HttpServletResponse,
+    ) {
+        return response.sendRedirect(orderService.buyOrder(orderId))
+    }
 }

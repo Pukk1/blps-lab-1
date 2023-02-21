@@ -4,8 +4,8 @@ import com.iver.blpslab1.dao.order.entity.OrderEntity
 import com.iver.blpslab1.dao.order.entity.OrderId
 import com.iver.blpslab1.dao.order.repository.OrderRepository
 import com.iver.blpslab1.exception.NotFoundException
-import com.iver.blpslab1.remote.retrofit2.payment.PayRequest
-import com.iver.blpslab1.remote.retrofit2.payment.PaymentIntegration
+import com.iver.blpslab1.remote.payment.PayRequest
+import com.iver.blpslab1.remote.payment.PaymentIntegration
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -32,9 +32,9 @@ class OrderServiceImpl(
     }
 
     @Transactional
-    override fun buyOrder(orderId: OrderId) {
+    override fun buyOrder(orderId: OrderId): String {
         val order = getOrder(orderId) ?: throw NotFoundException("Order not found")
-        paymentIntegration.pay(
+        return paymentIntegration.pay(
             PayRequest(order.coast)
         )
     }

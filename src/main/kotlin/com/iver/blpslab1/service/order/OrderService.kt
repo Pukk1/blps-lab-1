@@ -8,5 +8,5 @@ interface OrderService {
     fun updateOrder(order: OrderEntity): OrderEntity
     fun getOrder(orderId: OrderId): OrderEntity?
     fun deleteOrder(orderId: OrderId)
-    fun buyOrder(orderId: OrderId)
+    fun buyOrder(orderId: OrderId): String
 }
