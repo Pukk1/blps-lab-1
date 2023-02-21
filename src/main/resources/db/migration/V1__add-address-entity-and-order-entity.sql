@@ -1,4 +1,4 @@
-CREATE TABLE adress_entity
+CREATE TABLE address_entity
 (
     id          BIGSERIAL PRIMARY KEY,
     country     VARCHAR(255),
@@ -18,4 +18,4 @@ CREATE TABLE order_entity
 );
 
 ALTER TABLE order_entity
-    ADD CONSTRAINT FK_ORDERENTITY_ON_ADDRESSENTITY FOREIGN KEY (address_entity_id) REFERENCES adress_entity (id);
+    ADD CONSTRAINT FK_ORDERENTITY_ON_ADDRESSENTITY FOREIGN KEY (address_entity_id) REFERENCES address_entity (id);

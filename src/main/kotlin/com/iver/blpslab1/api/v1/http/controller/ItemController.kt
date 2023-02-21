@@ -4,7 +4,8 @@ import com.iver.blpslab1.api.v1.http.requests.CreateItemRequest
 import com.iver.blpslab1.domain.service.ItemService
 import org.springframework.web.bind.annotation.*
 
-@RestController("/api/v1/item")
+@RestController
+@RequestMapping("/api/v1/item")
 class ItemController(
     private val itemService: ItemService
 ) {

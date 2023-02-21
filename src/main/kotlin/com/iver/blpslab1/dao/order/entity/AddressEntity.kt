@@ -6,11 +6,13 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.validation.constraints.NotBlank
 
+typealias AdressId = Long
+
 @Entity
-class AdressEntity(
+class AddressEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: AdressId,
     @NotBlank
     val country: String,
     @NotBlank
