@@ -1,5 +1,6 @@
 package com.iver.blpslab1.dao.order.entity
 
+import com.iver.blpslab1.dao.item.entity.ItemEntity
 import jakarta.persistence.*
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
@@ -10,7 +11,7 @@ typealias OrderId = Long
 class OrderEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: OrderId,
+    val id: OrderId?,
     val coast: Float,
     @NotBlank
     val phoneNumber: String,
@@ -19,4 +20,6 @@ class OrderEntity(
     val email: String,
     @OneToOne
     var addressEntity: AddressEntity,
+    @OneToMany(targetEntity = ItemEntity::class, fetch = FetchType.EAGER, mappedBy = "order")
+    var items: List<ItemEntity>,
 )

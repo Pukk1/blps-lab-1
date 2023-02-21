@@ -1,9 +1,6 @@
 package com.iver.blpslab1.dao.order.entity
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.*
 import jakarta.validation.constraints.NotBlank
 
 typealias AdressId = Long
@@ -12,7 +9,7 @@ typealias AdressId = Long
 class AddressEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: AdressId,
+    val id: AdressId?,
     @NotBlank
     val country: String,
     @NotBlank

@@ -1,5 +1,6 @@
 package com.iver.blpslab1.dao.item.entity
 
+import com.iver.blpslab1.dao.order.entity.OrderEntity
 import jakarta.persistence.*
 import jakarta.validation.constraints.NotBlank
 
@@ -25,4 +26,8 @@ class ItemEntity(
         orphanRemoval = true
     )
     val specifications: List<SpecificationEntity>,
-)
+) {
+    @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    lateinit var order: OrderEntity
+}
