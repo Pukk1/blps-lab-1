@@ -1,9 +1,9 @@
 package com.iver.blpslab1.api.v1.http.controller
 
-import com.iver.blpslab1.api.v1.http.requests.CreateItemRequest
-import com.iver.blpslab1.api.v1.http.requests.UpdateItemRequest
-import com.iver.blpslab1.api.v1.http.views.ItemView
-import com.iver.blpslab1.api.v1.http.views.toView
+import com.iver.blpslab1.api.v1.http.controller.dto.requests.CreateItemRequest
+import com.iver.blpslab1.api.v1.http.controller.dto.requests.UpdateItemRequest
+import com.iver.blpslab1.api.v1.http.controller.dto.views.ItemView
+import com.iver.blpslab1.api.v1.http.controller.dto.views.toView
 import com.iver.blpslab1.domain.service.ItemService
 import org.springframework.web.bind.annotation.*
 

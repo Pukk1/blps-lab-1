@@ -1,4 +1,4 @@
-package com.iver.blpslab1.api.v1.http.requests
+package com.iver.blpslab1.api.v1.http.controller.dto.requests
 
 import com.iver.blpslab1.dao.item.entity.ItemEntity
 import jakarta.validation.constraints.NotBlank

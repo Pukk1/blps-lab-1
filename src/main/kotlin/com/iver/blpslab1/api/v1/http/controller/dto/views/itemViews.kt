@@ -1,4 +1,4 @@
-package com.iver.blpslab1.api.v1.http.views
+package com.iver.blpslab1.api.v1.http.controller.dto.views
 
 import com.iver.blpslab1.dao.item.entity.ItemEntity
 
