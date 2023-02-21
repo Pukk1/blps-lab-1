@@ -12,8 +12,14 @@ class ItemView(
     val definition: String?,
 )
 
-fun ItemEntity.toView(
-): ItemView = ItemView(
+class ItemShortView(
+    val id: Long,
+    val fullName: String,
+    val inStock: Boolean,
+    val price: Int?
+)
+
+fun ItemEntity.toView(): ItemView = ItemView(
     id = id,
     fullName = fullName,
     inStock = inStock,
@@ -21,4 +27,11 @@ fun ItemEntity.toView(
     warrantyPeriod = warrantyPeriod,
     country = country,
     definition = definition,
+)
+
+fun ItemEntity.toShortView(): ItemShortView = ItemShortView(
+    id = id,
+    fullName = fullName,
+    inStock = inStock,
+    price = price
 )

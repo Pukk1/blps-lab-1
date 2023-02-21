@@ -4,7 +4,7 @@ import com.iver.blpslab1.api.v1.http.requests.CreateItemRequest
 import com.iver.blpslab1.api.v1.http.requests.UpdateItemRequest
 import com.iver.blpslab1.api.v1.http.views.ItemView
 import com.iver.blpslab1.api.v1.http.views.toView
-import com.iver.blpslab1.domain.service.ItemService
+import com.iver.blpslab1.domain.service.item.ItemService
 import org.springframework.web.bind.annotation.*
 
 @RestController

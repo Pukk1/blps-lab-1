@@ -24,7 +24,7 @@ class UpdateItemRequest(
     @NotBlank
     val country: String,
     @NotBlank
-    val definition: String,
+    val definition: String?,
 )
 
 fun CreateItemRequest.toEntity(
