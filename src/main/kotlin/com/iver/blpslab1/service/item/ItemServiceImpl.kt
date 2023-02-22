@@ -6,6 +6,8 @@ import com.iver.blpslab1.api.v1.http.requests.toEntity
 import com.iver.blpslab1.dao.item.entity.ItemEntity
 import com.iver.blpslab1.dao.item.repository.ItemRepository
 import com.iver.blpslab1.exception.NotFoundException
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Isolation
 import org.springframework.transaction.annotation.Transactional
@@ -37,8 +39,9 @@ class ItemServiceImpl(
     ) = itemRepository.deleteById(id)
 
     override fun getAllByKeyword(
-        keyword: String
-    ): List<ItemEntity> = itemRepository.findSimilar(keyword)
+        keyword: String,
+        pageable: Pageable,
+    ): Page<ItemEntity> = itemRepository.findSimilar(keyword, pageable)
 
     private val hintSearchingLimit = 5
     override fun getHints(
