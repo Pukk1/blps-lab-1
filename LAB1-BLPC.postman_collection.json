@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8d434f4a-295b-4e53-9e84-68be322ab3db",
+		"_postman_id": "c4786bd4-3ea3-45dc-b42b-6f5d39f90da4",
 		"name": "LAB1-BLPC",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "18093937"
@@ -272,7 +272,7 @@
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"\r",
-									"    pm.collectionVariables.set(\"itemId\", pm.response.json().id);\r",
+									"    pm.collectionVariables.set(\"orderId\", pm.response.json().id);\r",
 									"});"
 								],
 								"type": "text/javascript"
