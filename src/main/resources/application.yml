@@ -17,9 +17,8 @@ spring:
     user: ${DATASOURCE_USERNAME:s309681}
     password: ${DATASOURCE_PASSWORD}
     enabled: true
-#    baseline-on-migrate: true
-
-
+    baseline-on-migrate: true
+    baseline-version: 0
 
 paymentIntegration:
   accessToken: asd
