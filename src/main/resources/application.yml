@@ -22,4 +22,4 @@ spring:
 
 paymentIntegration:
   accessToken: asd
-  url: ${PAYMENT_INTEGRATION_URL:http://localhost:9091/api/v1/payment/}
+  url: ${PAYMENT_INTEGRATION_URL:http://localhost:9090/api/v1/payment/}
