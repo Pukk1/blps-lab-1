@@ -1,9 +1,9 @@
-package com.iver.blpslab1.api.v1.http.controller
+package com.iver.blpslab1.api.v1.http
 
-import com.iver.blpslab1.api.v1.http.dto.RequestOrderDto
-import com.iver.blpslab1.api.v1.http.dto.ResponseOrderDto
-import com.iver.blpslab1.api.v1.http.dto.toDto
-import com.iver.blpslab1.api.v1.http.dto.toEntity
+import com.iver.blpslab1.api.v1.http.requests.OrderRequest
+import com.iver.blpslab1.api.v1.http.requests.toEntity
+import com.iver.blpslab1.api.v1.http.views.OrderView
+import com.iver.blpslab1.api.v1.http.views.toView
 import com.iver.blpslab1.dao.order.entity.OrderId
 import com.iver.blpslab1.service.order.OrderService
 import jakarta.servlet.http.HttpServletResponse
@@ -16,9 +16,9 @@ class OrderController(
 ) {
     @PostMapping
     fun createOrder(
-        @RequestBody requestOrderDto: RequestOrderDto,
-    ): ResponseOrderDto {
-        return orderService.createOrder(requestOrderDto.toEntity()).toDto()
+        @RequestBody orderRequest: OrderRequest,
+    ): OrderView {
+        return orderService.createOrder(orderRequest.toEntity()).toView()
     }
 
     @GetMapping("/{orderId}")
@@ -28,9 +28,9 @@ class OrderController(
 
     @PutMapping
     fun updateOrder(
-        @RequestBody requestOrderDto: RequestOrderDto,
-    ): ResponseOrderDto {
-        return orderService.updateOrder(requestOrderDto.toEntity()).toDto()
+        @RequestBody orderRequest: OrderRequest,
+    ): OrderView {
+        return orderService.updateOrder(orderRequest.toEntity()).toView()
     }
 
     @DeleteMapping("/{orderId}")

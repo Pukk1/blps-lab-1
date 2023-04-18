@@ -1,4 +1,4 @@
-package com.iver.blpslab1.api.v1.http.controller
+package com.iver.blpslab1.api.v1.http
 
 import com.iver.blpslab1.api.v1.http.views.ItemShortView
 import com.iver.blpslab1.api.v1.http.views.toShortView

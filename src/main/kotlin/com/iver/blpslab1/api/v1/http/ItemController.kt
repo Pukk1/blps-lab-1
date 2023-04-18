@@ -1,4 +1,4 @@
-package com.iver.blpslab1.api.v1.http.controller
+package com.iver.blpslab1.api.v1.http
 
 import com.iver.blpslab1.api.v1.http.requests.CreateItemRequest
 import com.iver.blpslab1.api.v1.http.requests.UpdateItemRequest
