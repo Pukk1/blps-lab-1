@@ -1,7 +1,7 @@
 package com.iver.blpslab1.dao.item
 
-import jakarta.persistence.*
-import jakarta.validation.constraints.NotBlank
+import javax.persistence.*
+import javax.validation.constraints.NotBlank
 
 @Entity
 class ItemEntity(

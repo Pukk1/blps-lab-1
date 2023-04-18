@@ -6,9 +6,9 @@ import com.iver.blpslab1.api.v1.http.views.ItemView
 import com.iver.blpslab1.api.v1.http.views.toView
 import com.iver.blpslab1.service.item.ItemService
 import io.swagger.v3.oas.annotations.Parameter
-import jakarta.validation.constraints.NotBlank
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
+import javax.validation.constraints.NotBlank
 
 @RestController
 @RequestMapping("/api/v1/item")

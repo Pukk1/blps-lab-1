@@ -2,8 +2,8 @@ package com.iver.blpslab1.api.v1.http.views
 
 import com.iver.blpslab1.dao.order.OrderEntity
 import com.iver.blpslab1.dao.order.OrderId
-import jakarta.validation.constraints.Email
-import jakarta.validation.constraints.NotBlank
+import javax.validation.constraints.Email
+import javax.validation.constraints.NotBlank
 
 data class OrderView(
     var id: OrderId,

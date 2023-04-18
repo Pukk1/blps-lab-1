@@ -7,15 +7,15 @@ spring:
       ddl-auto: validate
 
   datasource:
-    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/studs}
-    username: ${DATASOURCE_USERNAME:s309681}
-    password: ${DATASOURCE_PASSWORD}
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:54320/postgres}
+    username: ${DATASOURCE_USERNAME:postgres}
+    password: ${DATASOURCE_PASSWORD:postgres}
 
   flyway:
-    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/studs}
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:54320/postgres}
     driver-class-name: org.postgresql.Driver
-    user: ${DATASOURCE_USERNAME:s309681}
-    password: ${DATASOURCE_PASSWORD}
+    user: ${DATASOURCE_USERNAME:postgres}
+    password: ${DATASOURCE_PASSWORD:postgres}
     enabled: true
     baseline-on-migrate: true
     baseline-version: 0
@@ -23,3 +23,8 @@ spring:
 paymentIntegration:
   accessToken: asd
   url: ${PAYMENT_INTEGRATION_URL:http://localhost:9090/api/v1/payment/}
+
+logging:
+  level:
+    com:
+      atomikos: DEBUG

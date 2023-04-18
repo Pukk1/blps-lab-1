@@ -1,6 +1,6 @@
 package com.iver.blpslab1.dao.item
 
-import jakarta.persistence.*
+import javax.persistence.*
 
 @Entity
 class SpecificationEntity(

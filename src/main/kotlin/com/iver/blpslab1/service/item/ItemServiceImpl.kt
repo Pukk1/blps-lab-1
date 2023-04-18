@@ -9,34 +9,59 @@ import com.iver.blpslab1.exception.NotFoundException
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
-import org.springframework.transaction.annotation.Isolation
-import org.springframework.transaction.annotation.Transactional
+import org.springframework.transaction.PlatformTransactionManager
+import org.springframework.transaction.support.TransactionTemplate
 
 @Service
 class ItemServiceImpl(
-    private val itemRepository: ItemRepository
+    private val itemRepository: ItemRepository,
+    transactionManager: PlatformTransactionManager,
 ) : ItemService, ItemSearchService {
+
+    private val transactionTemplate = TransactionTemplate(transactionManager)
 
     override fun createItem(
         request: CreateItemRequest
-    ): ItemEntity = save(request.toEntity())
+    ): ItemEntity =
+        transactionTemplate.execute {
+            try {
+                save(request.toEntity())
+            } catch (e: Exception) {
+                it.setRollbackOnly()
+                throw e
+            }
+        } as ItemEntity
 
     override fun getItemById(
         id: Long
     ): ItemEntity = itemRepository.findById(id).orElseThrow { NotFoundException("Item not found") }
 
-    @Transactional(isolation = Isolation.REPEATABLE_READ)
     override fun updateItem(
         id: Long,
         request: UpdateItemRequest
-    ): ItemEntity {
-        val item = itemRepository.findById(id).orElseThrow { NotFoundException("Item not found") }
-        return save(request.toEntity(item.id))
-    }
+    ): ItemEntity =
+        transactionTemplate.execute {
+            try {
+                val item = itemRepository.findById(id).orElseThrow { NotFoundException("Item not found") }
+                save(request.toEntity(item.id))
+            } catch (e: Exception) {
+                it.setRollbackOnly()
+                throw e
+            }
+        } as ItemEntity
 
     override fun deleteItem(
         id: Long
-    ) = itemRepository.deleteById(id)
+    ) {
+        transactionTemplate.execute {
+            try {
+                itemRepository.deleteById(id)
+            } catch (e: Exception) {
+                it.setRollbackOnly()
+                throw e
+            }
+        }
+    }
 
     override fun getAllByKeyword(
         keyword: String,
