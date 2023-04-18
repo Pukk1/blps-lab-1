@@ -11,10 +11,10 @@ import javax.transaction.UserTransaction
 @Configuration
 class AtomikosTransactionManagerConfig {
 
-    @Bean(initMethod = "init", destroyMethod = "shutdownForce")
-    fun userTransactionService(): UserTransactionServiceImp {
-        return UserTransactionServiceImp()
-    }
+//    @Bean(initMethod = "init", destroyMethod = "shutdownForce")
+//    fun userTransactionService(): UserTransactionServiceImp {
+//        return UserTransactionServiceImp()
+//    }
 
     @Bean(initMethod = "init", destroyMethod = "close")
     fun atomikosTransactionManager(): UserTransactionManager {
