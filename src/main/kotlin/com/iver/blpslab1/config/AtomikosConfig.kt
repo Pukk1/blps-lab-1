@@ -1,6 +1,6 @@
 package com.iver.blpslab1.config
 
-import com.atomikos.icatch.config.UserTransactionServiceImp
+//import com.atomikos.icatch.config.UserTransactionServiceImp
 import com.atomikos.icatch.jta.UserTransactionManager
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
