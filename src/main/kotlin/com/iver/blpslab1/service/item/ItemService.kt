@@ -2,7 +2,7 @@ package com.iver.blpslab1.service.item
 
 import com.iver.blpslab1.api.v1.http.requests.CreateItemRequest
 import com.iver.blpslab1.api.v1.http.requests.UpdateItemRequest
-import com.iver.blpslab1.dao.item.entity.ItemEntity
+import com.iver.blpslab1.dao.item.ItemEntity
 
 interface ItemService {
 

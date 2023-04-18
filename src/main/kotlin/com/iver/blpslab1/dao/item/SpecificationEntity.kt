@@ -1,4 +1,4 @@
-package com.iver.blpslab1.dao.item.entity
+package com.iver.blpslab1.dao.item
 
 import jakarta.persistence.*
 

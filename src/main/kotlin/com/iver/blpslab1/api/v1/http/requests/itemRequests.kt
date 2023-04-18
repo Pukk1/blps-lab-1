@@ -1,6 +1,6 @@
 package com.iver.blpslab1.api.v1.http.requests
 
-import com.iver.blpslab1.dao.item.entity.ItemEntity
+import com.iver.blpslab1.dao.item.ItemEntity
 import jakarta.validation.constraints.NotBlank
 
 class CreateItemRequest(

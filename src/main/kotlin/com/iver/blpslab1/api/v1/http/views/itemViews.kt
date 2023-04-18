@@ -1,6 +1,6 @@
 package com.iver.blpslab1.api.v1.http.views
 
-import com.iver.blpslab1.dao.item.entity.ItemEntity
+import com.iver.blpslab1.dao.item.ItemEntity
 
 class ItemView(
     val id: Long,

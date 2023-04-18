@@ -1,7 +1,7 @@
 package com.iver.blpslab1.service.order
 
-import com.iver.blpslab1.dao.order.entity.OrderEntity
-import com.iver.blpslab1.dao.order.entity.OrderId
+import com.iver.blpslab1.dao.order.OrderEntity
+import com.iver.blpslab1.dao.order.OrderId
 
 interface OrderService {
     fun createOrder(order: OrderEntity): OrderEntity

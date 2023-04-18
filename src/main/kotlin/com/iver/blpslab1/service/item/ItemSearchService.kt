@@ -1,6 +1,6 @@
 package com.iver.blpslab1.service.item
 
-import com.iver.blpslab1.dao.item.entity.ItemEntity
+import com.iver.blpslab1.dao.item.ItemEntity
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 

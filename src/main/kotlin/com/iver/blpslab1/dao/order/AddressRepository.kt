@@ -1,7 +1,5 @@
-package com.iver.blpslab1.dao.order.repository
+package com.iver.blpslab1.dao.order
 
-import com.iver.blpslab1.dao.order.entity.AddressEntity
-import com.iver.blpslab1.dao.order.entity.AddressId
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 

@@ -1,8 +1,8 @@
 package com.iver.blpslab1.service.order
 
-import com.iver.blpslab1.dao.order.entity.OrderEntity
-import com.iver.blpslab1.dao.order.entity.OrderId
-import com.iver.blpslab1.dao.order.repository.OrderRepository
+import com.iver.blpslab1.dao.order.OrderEntity
+import com.iver.blpslab1.dao.order.OrderId
+import com.iver.blpslab1.dao.order.OrderRepository
 import com.iver.blpslab1.exception.NotFoundException
 import com.iver.blpslab1.remote.payment.PayRequest
 import com.iver.blpslab1.remote.payment.PaymentIntegration

@@ -1,9 +1,9 @@
 package com.iver.blpslab1.api.v1.http.requests
 
-import com.iver.blpslab1.dao.order.entity.AddressEntity
-import com.iver.blpslab1.dao.order.entity.AddressId
-import com.iver.blpslab1.dao.order.entity.OrderEntity
-import com.iver.blpslab1.dao.order.entity.OrderId
+import com.iver.blpslab1.dao.order.AddressEntity
+import com.iver.blpslab1.dao.order.AddressId
+import com.iver.blpslab1.dao.order.OrderEntity
+import com.iver.blpslab1.dao.order.OrderId
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
 

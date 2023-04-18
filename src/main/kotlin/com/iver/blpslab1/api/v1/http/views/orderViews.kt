@@ -1,7 +1,7 @@
 package com.iver.blpslab1.api.v1.http.views
 
-import com.iver.blpslab1.dao.order.entity.OrderEntity
-import com.iver.blpslab1.dao.order.entity.OrderId
+import com.iver.blpslab1.dao.order.OrderEntity
+import com.iver.blpslab1.dao.order.OrderId
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
 

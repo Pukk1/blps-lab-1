@@ -1,7 +1,7 @@
 package com.iver.blpslab1.api.v1.http.views
 
-import com.iver.blpslab1.dao.order.entity.AddressEntity
-import com.iver.blpslab1.dao.order.entity.AddressId
+import com.iver.blpslab1.dao.order.AddressEntity
+import com.iver.blpslab1.dao.order.AddressId
 import jakarta.validation.constraints.NotBlank
 
 data class AddressView(

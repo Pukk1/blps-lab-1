@@ -1,6 +1,5 @@
-package com.iver.blpslab1.dao.item.repository
+package com.iver.blpslab1.dao.item
 
-import com.iver.blpslab1.dao.item.entity.ItemEntity
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository

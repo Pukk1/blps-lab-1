@@ -1,6 +1,6 @@
-package com.iver.blpslab1.dao.order.entity
+package com.iver.blpslab1.dao.order
 
-import com.iver.blpslab1.dao.item.entity.ItemEntity
+import com.iver.blpslab1.dao.item.ItemEntity
 import jakarta.persistence.*
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank

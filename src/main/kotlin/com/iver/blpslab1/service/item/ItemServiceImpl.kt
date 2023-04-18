@@ -3,8 +3,8 @@ package com.iver.blpslab1.service.item
 import com.iver.blpslab1.api.v1.http.requests.CreateItemRequest
 import com.iver.blpslab1.api.v1.http.requests.UpdateItemRequest
 import com.iver.blpslab1.api.v1.http.requests.toEntity
-import com.iver.blpslab1.dao.item.entity.ItemEntity
-import com.iver.blpslab1.dao.item.repository.ItemRepository
+import com.iver.blpslab1.dao.item.ItemEntity
+import com.iver.blpslab1.dao.item.ItemRepository
 import com.iver.blpslab1.exception.NotFoundException
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
