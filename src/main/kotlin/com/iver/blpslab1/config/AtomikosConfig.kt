@@ -18,7 +18,7 @@ class AtomikosTransactionManagerConfig {
 //    }
 
     @Bean
-    fun userTransaction(): UserTransaction =
+    fun userTransaction(): UserTransactionImp =
         UserTransactionImp()
 
     @Bean(initMethod = "init", destroyMethod = "close")
