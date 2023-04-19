@@ -30,7 +30,7 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     implementation("org.springframework.boot:spring-boot-starter-security")
-
+    implementation("io.jsonwebtoken:jjwt:0.9.1")
 
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")

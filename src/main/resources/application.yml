@@ -28,6 +28,11 @@ paymentIntegration:
   accessToken: asd
   url: ${PAYMENT_INTEGRATION_URL:http://localhost:9090/api/v1/payment/}
 
+jwt:
+  header: Authorization
+  secret: mobest1an
+  expirationTime: 21
+
 logging:
   level:
     org:
