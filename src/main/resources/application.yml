@@ -7,12 +7,12 @@ spring:
       ddl-auto: validate
 
   datasource:
-    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/postgres}
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:54320/postgres}
     username: ${DATASOURCE_USERNAME:postgres}
     password: ${DATASOURCE_PASSWORD:postgres}
 
   flyway:
-    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/postgres}
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:54320/postgres}
     driver-class-name: org.postgresql.Driver
     user: ${DATASOURCE_USERNAME:postgres}
     password: ${DATASOURCE_PASSWORD:postgres}

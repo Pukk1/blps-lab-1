@@ -1,4 +1,4 @@
 myapp {
-  com.iver.blpslab1.config.CustomLoginModule required
+  com.iver.blpslab1.config.com.iver.blpslab1.config.CustomLoginModule required
   debug=true;
 };
