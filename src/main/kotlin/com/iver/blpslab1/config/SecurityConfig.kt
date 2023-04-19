@@ -1,5 +1,7 @@
 package com.iver.blpslab1.config
 
+import com.iver.blpslab1.dao.user.UserRepository
+import com.iver.blpslab1.security.UserDetailsServiceImpl
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.core.io.ClassPathResource
@@ -8,22 +10,15 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
-import org.springframework.security.core.Authentication
-import org.springframework.security.core.userdetails.User
-import org.springframework.security.core.userdetails.UserDetails
-import org.springframework.security.core.userdetails.UserDetailsService
-import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-
 import org.springframework.security.crypto.password.PasswordEncoder
-
-
-
 
 
 @Configuration
 @EnableWebSecurity
-class SecurityConfig : WebSecurityConfigurerAdapter() {
+class SecurityConfig(
+    private val userRepository: UserRepository,
+) : WebSecurityConfigurerAdapter() {
 
 //    override fun configure(http: HttpSecurity) {
 //        http
@@ -48,15 +43,15 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
 
     @Bean
     fun jaasAuthenticationProvider(): JaasAuthenticationProvider {
-        val provider = CustomJaasAuthenticationProvider()
+        val provider = JaasAuthenticationProvider()
         provider.loginConfig = ClassPathResource("jaas.config")
         provider.setLoginContextName("Sample")
         return provider
     }
 
     @Bean
-    fun myUserDetailsService(): MyUserDetailsService {
-        return MyUserDetailsService()
+    fun myUserDetailsService(): UserDetailsServiceImpl {
+        return UserDetailsServiceImpl(userRepository)
     }
 
     @Bean
@@ -71,23 +66,16 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
     }
 }
 
-class CustomJaasAuthenticationProvider : JaasAuthenticationProvider() {
-    override fun authenticate(auth: Authentication?): Authentication {
-        return super.authenticate(auth)
-    }
-}
-
-class MyUserDetailsService : UserDetailsService {
-    @Throws(UsernameNotFoundException::class)
-    override fun loadUserByUsername(username: String): UserDetails {
-        return if ("user" == username) {
-            User.builder()
-                .username("user")
-                .password("\$2a\$10\$mbWxyHyT0hCkhp7ME4tE3.rBsUdVYQFrReMULu9KQLxbrtBvrIz0K") // password: password
-                .roles("USER")
-                .build()
-        } else {
-            throw UsernameNotFoundException("User not found")
-        }
-    }
-}
+//class MyUserDetailsService : UserDetailsService {
+//    override fun loadUserByUsername(username: String): UserDetails {
+//        return if ("user" == username) {
+//            User.builder()
+//                .username("user")
+//                .password("\$2a\$10\$mbWxyHyT0hCkhp7ME4tE3.rBsUdVYQFrReMULu9KQLxbrtBvrIz0K") // password: password
+//                .roles("USER")
+//                .build()
+//        } else {
+//            throw UsernameNotFoundException("User not found")
+//        }
+//    }
+//}

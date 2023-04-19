@@ -1,5 +1,6 @@
 package com.iver.blpslab1.dao.user
 
-class Role {
-
+enum class Role {
+    USER,
+    ADMIN,
 }
