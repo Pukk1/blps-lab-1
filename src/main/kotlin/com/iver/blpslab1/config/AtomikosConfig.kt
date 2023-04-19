@@ -1,6 +1,7 @@
 package com.iver.blpslab1.config
 
 //import com.atomikos.icatch.config.UserTransactionServiceImp
+import com.atomikos.icatch.jta.UserTransactionImp
 import com.atomikos.icatch.jta.UserTransactionManager
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -15,6 +16,10 @@ class AtomikosTransactionManagerConfig {
 //    fun userTransactionService(): UserTransactionServiceImp {
 //        return UserTransactionServiceImp()
 //    }
+
+    @Bean
+    fun userTransaction(): UserTransaction =
+        UserTransactionImp()
 
     @Bean(initMethod = "init", destroyMethod = "close")
     fun atomikosTransactionManager(): UserTransactionManager {
