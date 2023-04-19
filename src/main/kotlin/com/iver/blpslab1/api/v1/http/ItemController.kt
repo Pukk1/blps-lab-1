@@ -20,29 +20,21 @@ class ItemController(
     @ResponseStatus(HttpStatus.CREATED)
     fun createItem(
         @RequestBody createItemRequest: CreateItemRequest,
-        @Parameter @RequestHeader(name = "X_EDX_API_KEY", required = true)
-        @NotBlank authenticationKey : String
     ): ItemView = itemService.createItem(createItemRequest).toView()
 
     @GetMapping("/{itemId}")
     fun getItemById(
         @PathVariable itemId: Long,
-        @Parameter @RequestHeader(name = "X_EDX_API_KEY", required = true)
-        @NotBlank authenticationKey : String
     ): ItemView = itemService.getItemById(itemId).toView()
 
     @PutMapping("/{itemId}")
     fun updateItem(
         @PathVariable itemId: Long,
         @RequestBody updateItemRequest: UpdateItemRequest,
-        @Parameter @RequestHeader(name = "X_EDX_API_KEY", required = true)
-        @NotBlank authenticationKey : String
     ): ItemView = itemService.updateItem(itemId, updateItemRequest).toView()
 
     @DeleteMapping("/{itemId}")
     fun deleteItem(
         @PathVariable itemId: Long,
-        @Parameter @RequestHeader(name = "X_EDX_API_KEY", required = true)
-        @NotBlank authenticationKey : String
     ) = itemService.deleteItem(itemId)
 }
