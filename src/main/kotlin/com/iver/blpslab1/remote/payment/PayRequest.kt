@@ -1,5 +1,9 @@
 package com.iver.blpslab1.remote.payment
 
 data class PayRequest(
-    val coast: Float,
+    val amount: Float,
+    val cardNumber: String,
+    val owner: String,
+    val expirationTime: String,
+    val cvvCode: Short,
 )

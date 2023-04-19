@@ -47,7 +47,13 @@ class OrderServiceImpl(
     override fun buyOrder(orderId: OrderId): String = doTransaction(transactionTemplate = transactionTemplate) {
         val order = getOrder(orderId) ?: throw NotFoundException("Order not found")
         paymentIntegration.pay(
-            PayRequest(order.coast)
+            PayRequest(
+                amount = order.coast,
+                cardNumber = "478329248239423",
+                owner = "fjdsklsd",
+                expirationTime = "03/24",
+                cvvCode = 473,
+            )
         )
     }
 }
