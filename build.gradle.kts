@@ -33,12 +33,14 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-security")
 
+    implementation("org.springframework.kafka:spring-kafka")
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("io.github.microutils:kotlin-logging-jvm:2.0.11")
-    implementation("org.modelmapper:modelmapper:3.1.1")
+//    implementation("org.modelmapper:modelmapper:3.1.1")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

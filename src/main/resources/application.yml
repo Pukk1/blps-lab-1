@@ -20,6 +20,12 @@ spring:
     baseline-on-migrate: true
     baseline-version: 0
 
+  kafka:
+    bootstrap-servers: localhost:29092
+    pay-log:
+      topic:
+        name: paylog
+
 paymentIntegration:
   accessToken: asd
   url: ${PAYMENT_INTEGRATION_URL:http://localhost:9090/api/v1/payment/}
@@ -34,3 +40,5 @@ logging:
     org:
       springframework:
         security: debug
+
+

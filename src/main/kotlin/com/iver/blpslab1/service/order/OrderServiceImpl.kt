@@ -6,6 +6,7 @@ import com.iver.blpslab1.dao.order.OrderRepository
 import com.iver.blpslab1.exception.NotFoundException
 import com.iver.blpslab1.remote.payment.PayRequest
 import com.iver.blpslab1.remote.payment.PaymentIntegration
+import com.iver.blpslab1.remote.payment.log.PayLogIntegration
 import com.iver.blpslab1.service.utils.doTransaction
 import org.springframework.stereotype.Service
 import org.springframework.transaction.PlatformTransactionManager
@@ -16,6 +17,7 @@ import org.springframework.transaction.support.TransactionTemplate
 class OrderServiceImpl(
     private val orderRepository: OrderRepository,
     private val paymentIntegration: PaymentIntegration,
+    private val payLogIntegration: PayLogIntegration,
     transactionManager: PlatformTransactionManager,
 ) : OrderService {
 
@@ -46,14 +48,15 @@ class OrderServiceImpl(
     @Transactional
     override fun buyOrder(orderId: OrderId): String = doTransaction(transactionTemplate = transactionTemplate) {
         val order = getOrder(orderId) ?: throw NotFoundException("Order not found")
-        paymentIntegration.pay(
-            PayRequest(
-                amount = order.coast,
-                cardNumber = "478329248239423",
-                owner = "fjdsklsd",
-                expirationTime = "03/24",
-                cvvCode = 473,
-            )
+        val payRequest = PayRequest(
+            amount = order.coast,
+            cardNumber = "478329248239423",
+            owner = "fjdsklsd",
+            expirationTime = "03/24",
+            cvvCode = 473,
         )
+        val res = paymentIntegration.pay(payRequest)
+        payLogIntegration.sendPayLog(orderId, payRequest).get()
+        res
     }
 }
