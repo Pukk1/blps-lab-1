@@ -59,6 +59,28 @@ class ItemServiceImpl(
         keyword: String
     ): List<ItemEntity> = itemRepository.findSimilarWithLimit(keyword, hintSearchingLimit)
 
+    override fun orderNewItemsMessage() {
+        if (checkItemsInStock()) {
+            println("There is no need to buy new items yet")
+        } else {
+            sendMessageToOrderNewItems()
+            println("Message about the need to purchase new items has been sent")
+        }
+    }
+
+    private fun checkItemsInStock(): Boolean {
+        val inStockItems = itemRepository.findByInStockTrue()
+        val notInStockItems = itemRepository.findByInStockFalse()
+
+        return if (inStockItems.isNotEmpty()) {
+            notInStockItems.size / (notInStockItems.size + inStockItems.size) < 0.2
+        } else false
+    }
+
+    private fun sendMessageToOrderNewItems() {
+        println("The items are running out, order new ones!")
+    }
+
     private fun save(
         itemEntity: ItemEntity
     ): ItemEntity = itemRepository.save(itemEntity)

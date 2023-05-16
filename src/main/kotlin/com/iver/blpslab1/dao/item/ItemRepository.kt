@@ -20,4 +20,8 @@ interface ItemRepository : JpaRepository<ItemEntity, Long> {
         keyword: String,
         limit: Int
     ): List<ItemEntity>
+
+    fun findByInStockTrue(): List<ItemEntity>
+
+    fun findByInStockFalse(): List<ItemEntity>
 }

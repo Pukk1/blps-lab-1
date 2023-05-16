@@ -19,4 +19,6 @@ interface ItemService {
     fun deleteItem(
         id: Long
     )
+
+    fun orderNewItemsMessage()
 }
