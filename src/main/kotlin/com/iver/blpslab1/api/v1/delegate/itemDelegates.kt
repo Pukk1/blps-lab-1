@@ -36,7 +36,7 @@ class GetItemDelegate(
     private val objectMapper: ObjectMapper,
 ) : JavaDelegate {
     override fun execute(execution: DelegateExecution) {
-        val itemId: Long = execution.getVariable("itemId") as Long
+        val itemId: Long = (execution.getVariable("itemId") as Int).toLong()
         execution.setVariable("item", objectMapper.writeValueAsString(itemService.getItemById(itemId).toView()))
     }
 }
