@@ -27,14 +27,14 @@ class ItemController(
 //        @PathVariable itemId: Long,
 //    ): ItemView = itemService.getItemById(itemId).toView()
 
-    @PutMapping("/{itemId}")
-    fun updateItem(
-        @PathVariable itemId: Long,
-        @RequestBody updateItemRequest: UpdateItemRequest,
-    ): ItemView = itemService.updateItem(itemId, updateItemRequest).toView()
+//    @PutMapping("/{itemId}")
+//    fun updateItem(
+//        @PathVariable itemId: Long,
+//        @RequestBody updateItemRequest: UpdateItemRequest,
+//    ): ItemView = itemService.updateItem(itemId, updateItemRequest).toView()
 
-    @DeleteMapping("/{itemId}")
-    fun deleteItem(
-        @PathVariable itemId: Long,
-    ) = itemService.deleteItem(itemId)
+//    @DeleteMapping("/{itemId}")
+//    fun deleteItem(
+//        @PathVariable itemId: Long,
+//    ) = itemService.deleteItem(itemId)
 }
