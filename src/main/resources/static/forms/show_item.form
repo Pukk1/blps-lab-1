@@ -1,0 +1,23 @@
+{
+  "components": [
+    {
+      "label": "item",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1xpv952",
+        "columns": 15
+      },
+      "id": "Field_0rtpxbe",
+      "key": "item"
+    }
+  ],
+  "type": "default",
+  "id": "show_item",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.12.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.19.0",
+  "schemaVersion": 9
+}
