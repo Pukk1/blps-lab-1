@@ -16,16 +16,16 @@ class ItemController(
     private val itemService: ItemService
 ) {
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    fun createItem(
-        @RequestBody createItemRequest: CreateItemRequest,
-    ): ItemView = itemService.createItem(createItemRequest).toView()
+//    @PostMapping
+//    @ResponseStatus(HttpStatus.CREATED)
+//    fun createItem(
+//        @RequestBody createItemRequest: CreateItemRequest,
+//    ): ItemView = itemService.createItem(createItemRequest).toView()
 
-    @GetMapping("/{itemId}")
-    fun getItemById(
-        @PathVariable itemId: Long,
-    ): ItemView = itemService.getItemById(itemId).toView()
+//    @GetMapping("/{itemId}")
+//    fun getItemById(
+//        @PathVariable itemId: Long,
+//    ): ItemView = itemService.getItemById(itemId).toView()
 
     @PutMapping("/{itemId}")
     fun updateItem(

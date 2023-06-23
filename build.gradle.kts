@@ -42,6 +42,8 @@ dependencies {
     implementation("io.github.microutils:kotlin-logging-jvm:2.0.11")
 //    implementation("org.modelmapper:modelmapper:3.1.1")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    implementation("org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp:7.19.0")
 }
 
 tasks.withType<KotlinCompile> {
