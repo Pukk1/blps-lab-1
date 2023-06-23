@@ -1,0 +1,23 @@
+{
+  "components": [
+    {
+      "label": "ItemId",
+      "type": "number",
+      "layout": {
+        "row": "Row_1rwkdz4",
+        "columns": null
+      },
+      "id": "Field_0csssgq",
+      "key": "itemId"
+    }
+  ],
+  "type": "default",
+  "id": "Form_1r3fuyq",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.12.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.19.0",
+  "schemaVersion": 9
+}

@@ -1,0 +1,79 @@
+{
+  "components": [
+    {
+      "label": "fullName",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_06xb2rx",
+        "columns": null
+      },
+      "id": "Field_13k8eol",
+      "key": "fullName",
+      "description": "fullName"
+    },
+    {
+      "label": "inStock",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_0yx0pqx",
+        "columns": null
+      },
+      "id": "Field_1glymve",
+      "key": "inStock",
+      "description": "inStock"
+    },
+    {
+      "label": "price",
+      "type": "number",
+      "layout": {
+        "row": "Row_165i8qu",
+        "columns": null
+      },
+      "id": "Field_15rf2wc",
+      "key": "price",
+      "description": "price"
+    },
+    {
+      "label": "warrantyPeriod",
+      "type": "number",
+      "layout": {
+        "row": "Row_0btk9bx",
+        "columns": null
+      },
+      "id": "Field_13y1rck",
+      "key": "warrantyPeriod",
+      "description": "warrantyPeriod"
+    },
+    {
+      "label": "country",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0ghxrg1",
+        "columns": null
+      },
+      "id": "Field_0fu1rpb",
+      "key": "country",
+      "description": "country"
+    },
+    {
+      "label": "definition",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0aspltk",
+        "columns": null
+      },
+      "id": "Field_14c1owc",
+      "key": "definition",
+      "description": "definition"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0uyrtuj",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.12.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.19.0",
+  "schemaVersion": 9
+}

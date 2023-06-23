@@ -25,7 +25,10 @@ class CreateItemDelegate(
             country = execution.getVariable("country") as String,
             definition = execution.getVariable("definition") as String,
         )
-        execution.setVariable("item", objectMapper.writeValueAsString(itemService.createItem(createItemRequest).toView()))
+        execution.setVariable(
+            "item",
+            objectMapper.writeValueAsString(itemService.createItem(createItemRequest).toView())
+        )
     }
 }
 
@@ -48,7 +51,7 @@ class UpdateItemDelegate(
     private val objectMapper: ObjectMapper,
 ) : JavaDelegate {
     override fun execute(execution: DelegateExecution) {
-        val itemId: Long = execution.getVariable("itemId") as Long
+        val itemId: Long = (execution.getVariable("itemId") as Int).toLong()
         val updateItemRequest = UpdateItemRequest(
             fullName = execution.getVariable("fullName") as String,
             inStock = execution.getVariable("inStock") as Boolean,
@@ -57,7 +60,10 @@ class UpdateItemDelegate(
             country = execution.getVariable("country") as String,
             definition = execution.getVariable("definition") as String,
         )
-        execution.setVariable("item", objectMapper.writeValueAsString(itemService.updateItem(itemId, updateItemRequest).toView()))
+        execution.setVariable(
+            "item",
+            objectMapper.writeValueAsString(itemService.updateItem(itemId, updateItemRequest).toView())
+        )
     }
 }
 
@@ -65,10 +71,9 @@ class UpdateItemDelegate(
 @Named("deleteItem")
 class DeleteItemDelegate(
     private val itemService: ItemService,
-    private val objectMapper: ObjectMapper,
 ) : JavaDelegate {
     override fun execute(execution: DelegateExecution) {
-        val itemId: Long = execution.getVariable("itemId") as Long
+        val itemId: Long = (execution.getVariable("itemId") as Int).toLong()
         itemService.deleteItem(itemId)
     }
 }

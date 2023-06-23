@@ -13,6 +13,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 class BlpsLab1Application
 
 fun main(args: Array<String>) {
-    println(BCryptPasswordEncoder().encode("xNNR06oFeJm"))
+    println("admin password: " + BCryptPasswordEncoder().encode("admin"))
     runApplication<BlpsLab1Application>(*args)
 }
