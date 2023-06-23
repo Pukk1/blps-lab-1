@@ -1,5 +1,6 @@
 package com.iver.blpslab1.api.v1.delegate
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.iver.blpslab1.api.v1.http.requests.CreateItemRequest
 import com.iver.blpslab1.api.v1.http.requests.UpdateItemRequest
 import com.iver.blpslab1.api.v1.http.views.toView
@@ -13,6 +14,7 @@ import javax.inject.Named
 @Named("createItem")
 class CreateItemDelegate(
     private val itemService: ItemService,
+    private val objectMapper: ObjectMapper,
 ) : JavaDelegate {
     override fun execute(execution: DelegateExecution) {
         val createItemRequest = CreateItemRequest(
@@ -23,7 +25,7 @@ class CreateItemDelegate(
             country = execution.getVariable("country") as String,
             definition = execution.getVariable("definition") as String,
         )
-        execution.setVariable("item", itemService.createItem(createItemRequest).toView())
+        execution.setVariable("item", objectMapper.writeValueAsString(itemService.createItem(createItemRequest).toView()))
     }
 }
 
@@ -31,10 +33,11 @@ class CreateItemDelegate(
 @Named("getItem")
 class GetItemDelegate(
     private val itemService: ItemService,
+    private val objectMapper: ObjectMapper,
 ) : JavaDelegate {
     override fun execute(execution: DelegateExecution) {
         val itemId: Long = execution.getVariable("itemId") as Long
-        execution.setVariable("item", itemService.getItemById(itemId).toView())
+        execution.setVariable("item", objectMapper.writeValueAsString(itemService.getItemById(itemId).toView()))
     }
 }
 
@@ -42,6 +45,7 @@ class GetItemDelegate(
 @Named("updateItem")
 class UpdateItemDelegate(
     private val itemService: ItemService,
+    private val objectMapper: ObjectMapper,
 ) : JavaDelegate {
     override fun execute(execution: DelegateExecution) {
         val itemId: Long = execution.getVariable("itemId") as Long
@@ -53,7 +57,7 @@ class UpdateItemDelegate(
             country = execution.getVariable("country") as String,
             definition = execution.getVariable("definition") as String,
         )
-        execution.setVariable("item", itemService.updateItem(itemId, updateItemRequest).toView())
+        execution.setVariable("item", objectMapper.writeValueAsString(itemService.updateItem(itemId, updateItemRequest).toView()))
     }
 }
 
@@ -61,6 +65,7 @@ class UpdateItemDelegate(
 @Named("deleteItem")
 class DeleteItemDelegate(
     private val itemService: ItemService,
+    private val objectMapper: ObjectMapper,
 ) : JavaDelegate {
     override fun execute(execution: DelegateExecution) {
         val itemId: Long = execution.getVariable("itemId") as Long
