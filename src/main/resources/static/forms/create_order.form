@@ -1,0 +1,103 @@
+{
+  "components": [
+    {
+      "label": "coast",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0d0s1gr",
+        "columns": null
+      },
+      "id": "Field_0lbm2qb",
+      "key": "coast"
+    },
+    {
+      "label": "phone number",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0vq0r5q",
+        "columns": null
+      },
+      "id": "Field_0ebom4h",
+      "key": "phoneNumber"
+    },
+    {
+      "label": "email",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_02iw198",
+        "columns": null
+      },
+      "id": "Field_1hzog3n",
+      "key": "email"
+    },
+    {
+      "label": "country",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0qkuizx",
+        "columns": null
+      },
+      "id": "Field_0y48uhk",
+      "key": "country"
+    },
+    {
+      "label": "city",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0dbovgw",
+        "columns": null
+      },
+      "id": "Field_1y7lci6",
+      "key": "city"
+    },
+    {
+      "label": "street",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1uq84w2",
+        "columns": null
+      },
+      "id": "Field_154tpsf",
+      "key": "street"
+    },
+    {
+      "label": "home number",
+      "type": "number",
+      "layout": {
+        "row": "Row_0povszu",
+        "columns": null
+      },
+      "id": "Field_1okxh4s",
+      "key": "homeNumber"
+    },
+    {
+      "label": "flat",
+      "type": "number",
+      "layout": {
+        "row": "Row_1lhjvaz",
+        "columns": null
+      },
+      "id": "Field_15oi0uh",
+      "key": "flat"
+    },
+    {
+      "label": "comment",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0ktwock",
+        "columns": null
+      },
+      "id": "Field_1hpb98v",
+      "key": "comment"
+    }
+  ],
+  "type": "default",
+  "id": "Form_10selhd",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.12.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.19.0",
+  "schemaVersion": 9
+}

@@ -30,7 +30,7 @@ class CreateOrderDelegate(
         )
         val orderRequest = OrderRequest(
             id = 0L,
-            coast = execution.getVariable("coast") as Float,
+            coast = (execution.getVariable("coast") as String).toFloat(),
             phoneNumber = execution.getVariable("phoneNumber") as String,
             email = execution.getVariable("email") as String,
             address = addressRequest,
