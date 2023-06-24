@@ -73,7 +73,7 @@ class UpdateOrderDelegate(
         )
         val orderRequest = OrderRequest(
             id = (execution.getVariable("orderId") as Int).toLong(),
-            coast = execution.getVariable("coast") as Float,
+            coast = (execution.getVariable("coast") as String).toFloat(),
             phoneNumber = execution.getVariable("phoneNumber") as String,
             email = execution.getVariable("email") as String,
             address = addressRequest,
